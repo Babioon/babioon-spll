@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="map" default="do">
+
+	<!-- import task -->
+	<import file="${project.basedir}/../_4all/tasks.xml"/>
+
+	<target name="do">
+	
+		<echo msg="**************************" />
+		<echo msg="* MAP: babioon-spll *" />
+		<echo msg="**************************" />
+
+
+		<property name="filebase" value="${packagedir}/${projectname}" />
+	
+		<phingcall target="symboliclink">
+			<property name="source" value="${filebase}/code/site/plugins/system/babioon" />
+			<property name="target" value="${webserver.root}/plugins/system/babioon" />
+		</phingcall>
+
+		<!-- link the admin language files -->		
+		<!-- 
+		<phingcall target="maplanguage">
+			<property name="basesource" value="${packagedir}/${svnprojectname}/code/administrator/language" />
+			<property name="basetarget" value="${webserver.root}/administrator/language" />
+		</phingcall>
+		 -->
+
+		<!-- link the site language files -->
+		<!--
+		<phingcall target="maplanguage">
+			<property name="basesource" value="${packagedir}/${svnprojectname}/code/site/language" />
+			<property name="basetarget" value="${webserver.root}/language" />
+		</phingcall>
+		-->
+
+	</target>
+</project>
