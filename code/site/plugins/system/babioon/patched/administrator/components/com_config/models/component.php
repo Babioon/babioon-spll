@@ -118,7 +118,11 @@ class ConfigModelComponent extends JModelForm
 			if ($f instanceof JFormFieldRules)
 			{
 				$rulesFields[] = $f->fieldname;
-				$section = $f->getSectionProperty();	
+				$section = 'component';
+				if (method_exists($f, 'getSectionProperty'))
+				{
+					$section = $f->getSectionProperty();
+				}
 				if (isset($data['params']) && isset($data['params'][$f->fieldname])) {
 					$rules	= new JAccessRules($data['params'][$f->fieldname]);
 					$asset	= JTable::getInstance('asset');
@@ -128,20 +132,20 @@ class ConfigModelComponent extends JModelForm
 						$name .= '.'.$section;
 						$level = 2;
 					}
-					if (!$asset->loadByName($name)) 
+					if (!$asset->loadByName($name))
 					{
 						// seems that we don't have row in the DB for this, lets create one
 						if ($level == 2) {
 							// we need to make sure that we have a level one row in our DB
 							$parentAsset = JTable::getInstance('asset');
 							if (!$parentAsset->loadByName($data['option'])) {
-								// no level one row in out DB, then lets create this  
+								// no level one row in out DB, then lets create this
 								$root	= JTable::getInstance('asset');
 								$root->loadByName('root.1');
 								$parentAsset->name 	= $data['option'];
 								$parentAsset->title = $data['option'];
 								$parentAsset->setLocation($root->id, 'last-child');
-								
+
 								if (!$parentAsset->check() || !$parentAsset->store()) {
 									$this->setError($parentAsset->getError());
 									return false;
@@ -151,26 +155,26 @@ class ConfigModelComponent extends JModelForm
 						}
 						else
 						{
-							// level is == 1 
+							// level is == 1
 							$root	= JTable::getInstance('asset');
 							$root->loadByName('root.1');
 							$asset->setLocation($root->id, 'last-child');
 						}
-						
+
 						$asset->name 	= $name;
 						$asset->title 	= $name;
 					}
 					$asset->rules = (string) $rules;
-		
+
 					if (!$asset->check() || !$asset->store()) {
 						$this->setError($asset->getError());
 						return false;
 					}
-				}	
+				}
 			}
 		}
 
-		
+
 		// We don't need this anymore
 		unset($data['option']);
 		unset($data['params']['rules']);
