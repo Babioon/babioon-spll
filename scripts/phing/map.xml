@@ -6,21 +6,21 @@
 	<import file="${project.basedir}/../_4all/tasks.xml"/>
 
 	<target name="do">
-	
+
 		<echo msg="**************************" />
 		<echo msg="* MAP: babioon-spll *" />
 		<echo msg="**************************" />
 
 
 		<property name="filebase" value="${packagedir}/${projectname}" />
-	
+
 		<phingcall target="symboliclink">
-			<property name="source" value="${filebase}/code/site/plugins/system/babioon" />
+			<property name="source" value="${filebase}/code/plugins/system/babioon" />
 			<property name="target" value="${webserver.root}/plugins/system/babioon" />
 		</phingcall>
 
-		<!-- link the admin language files -->		
-		<!-- 
+		<!-- link the admin language files -->
+		<!--
 		<phingcall target="maplanguage">
 			<property name="basesource" value="${packagedir}/${svnprojectname}/code/administrator/language" />
 			<property name="basetarget" value="${webserver.root}/administrator/language" />
