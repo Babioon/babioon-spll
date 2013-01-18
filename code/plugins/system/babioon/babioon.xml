@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="system" method="upgrade">
-	<name>System - BABIOON</name>
+	<name>BABIOON_SPLL</name>
+	<creationDate>May 2012</creationDate>
 	<author>Robert Deutz</author>
-	<creationDate>April 2012</creationDate>
-	<copyright>(C) 2012 Robert Deutz Business Solution. All rights reserved.</copyright>
-	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<copyright>Robert Deutz Business Solution</copyright>
+	<license>GNU General Public License version 3</license>
 	<authorEmail>contact@babioon.com</authorEmail>
 	<authorUrl>www.babioon.com</authorUrl>
-	<version>#@#PVERSION#@# (<![CDATA[ Rev: #@#SVNVERSION#@# ]]>)</version>
-	<description>usefully classes and libraries <![CDATA[ <br />
-			$Id: rdbs.xml 16 2010-10-18 09:08:27Z deutz $
-			]]></description>	
+	<version>2.0</version>
+	<description>BABIOON_SPLL_XML_DESCRIPTION</description>
 
 	<files>
 		<filename plugin="babioon">babioon.php</filename>
