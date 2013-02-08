@@ -8,9 +8,8 @@
 	<target name="do">
 
 		<echo msg="**************************" />
-		<echo msg="* MAP: babioon-spll *" />
+		<echo msg="* MAP: babioon-spll      *" />
 		<echo msg="**************************" />
-
 
 		<property name="filebase" value="${packagedir}/${projectname}" />
 
@@ -19,21 +18,15 @@
 			<property name="target" value="${webserver.root}/plugins/system/babioon" />
 		</phingcall>
 
-		<!-- link the admin language files -->
-		<!--
 		<phingcall target="maplanguage">
 			<property name="basesource" value="${packagedir}/${svnprojectname}/code/administrator/language" />
 			<property name="basetarget" value="${webserver.root}/administrator/language" />
 		</phingcall>
-		 -->
 
-		<!-- link the site language files -->
-		<!--
-		<phingcall target="maplanguage">
-			<property name="basesource" value="${packagedir}/${svnprojectname}/code/site/language" />
-			<property name="basetarget" value="${webserver.root}/language" />
+		<phingcall target="symboliclink">
+			<property name="source" value="${filebase}/code/media/babioon" />
+			<property name="target" value="${webserver.root}/media/babioon" />
 		</phingcall>
-		-->
 
 	</target>
 </project>
