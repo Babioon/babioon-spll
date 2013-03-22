@@ -19,7 +19,7 @@
 		</phingcall>
 
 		<phingcall target="maplanguage">
-			<property name="basesource" value="${packagedir}/${svnprojectname}/code/administrator/language" />
+			<property name="basesource" value="${packagedir}/${projectname}/code/administrator/language" />
 			<property name="basetarget" value="${webserver.root}/administrator/language" />
 		</phingcall>
 
